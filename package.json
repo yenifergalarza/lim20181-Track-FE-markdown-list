@@ -1,0 +1,26 @@
+{
+  "name": "md-links",
+  "version": "1.0.0",
+  "description": "es un paquete de npm que verifica links en archivos md ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yenifergalarza/lim20181-Track-FE-markdown-list.git"
+  },
+  "keywords": [
+    "javascript",
+    "npm"
+  ],
+  "author": "yenifer galarza pezo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yenifergalarza/lim20181-Track-FE-markdown-list/issues"
+  },
+  "homepage": "https://github.com/yenifergalarza/lim20181-Track-FE-markdown-list#readme",
+  "dependencies": {
+    "fs": "0.0.1-security"
+  }
+}
