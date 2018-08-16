@@ -22,5 +22,8 @@
   "homepage": "https://github.com/yenifergalarza/lim20181-Track-FE-markdown-list#readme",
   "dependencies": {
     "fs": "0.0.1-security"
+  },
+  "bin": {
+    "md-links": "index.js"
   }
 }
