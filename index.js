@@ -41,8 +41,6 @@ const func = (md) => {
 			//console.log(Array.isArray(equal));
 			let equalLink = str.match(validateLink);
 			console.log(equalLink);
-			console.log(equalLink.length);
-
 
 			const arrLinks = [];
 
@@ -65,12 +63,12 @@ const func = (md) => {
 						if (response.status >= 200 && response.status < 400) {
 							//  arrLinks.status=response.status,
 							// arrLinks.statusText='ok'
-							console.log(links + response.status);
+							console.log(`${links}  ${response.status} ok`);
 							
 						}else{
 							// arrLinks.status=response.status,
 							// arrLinks.statusText='fail'
-							console.log(links + response.status);
+							console.log(`${links} ${response.status} fail`);
 
 						}
 						// response.status >=200 && response.status< 400;
@@ -81,14 +79,17 @@ const func = (md) => {
 						//  }
 					})
 
-					.catch(error => console.log(error));
 		
+						.catch(error =>console.log(`${links}  fail`))
 			})
 
+       let stats =() =>{
+		console.log(`Total: ${arrLinks.length}`);
+
+	   }
 
 
-
-
+stats();
 
 		}
 	});
