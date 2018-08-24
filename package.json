@@ -21,9 +21,12 @@
   },
   "homepage": "https://github.com/yenifergalarza/lim20181-Track-FE-markdown-list#readme",
   "dependencies": {
-    "fs": "0.0.1-security"
+    "fetch": "^1.1.0",
+    "fs": "0.0.1-security",
+    "node-fetch": "^2.2.0"
   },
   "bin": {
-    "md-links": "index.js"
+    "md-links": "index.js",
+    "--validate": "validate.js"
   }
 }

@@ -243,7 +243,7 @@ para usarlo programáticamente.
 
 ### Pistas
 
-- [Marked](https://github.com/markedjs/marked/blob/master/docs/USING_PRO.md)
+- [Marked](https://github.co)
 - [NPM](https://docs.npmjs.com/getting-started/what-is-npm)
 - [Publicar packpage](https://docs.npmjs.com/getting-started/publishing-npm-packages)
 - [Crear módulos en Node.js](https://docs.npmjs.com/getting-started/publishing-npm-packages)
@@ -254,8 +254,8 @@ para usarlo programáticamente.
 
 ### Tutoriales / NodeSchool workshoppers
 
-- [learnyounode](https://github.com/workshopper/learnyounode)
-- [how-to-npm](https://github.com/workshopper/how-to-npm)
+- [learnyounode](https://github.com/wrnyounode)
+- [how-to-npm](https://github.co)
 - [promise-it-wont-hurt](https://github.com/stevekane/promise-it-wont-hurt)
 
 ### Otros recursos
