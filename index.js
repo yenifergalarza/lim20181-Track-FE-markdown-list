@@ -13,6 +13,7 @@ const mdLinks = () => {
 		if (stats.isFile()) {
 			console.log('    file');
 			check(md);
+			
 
 		}
 		if (stats.isDirectory()) {
@@ -25,6 +26,7 @@ const mdLinks = () => {
 
 const func = (md) => {
 	console.log(`Hola soy md`);
+	const statsL = {};
 
 	fs.readFile(md, 'utf8', (err, buff) => {
 
@@ -40,7 +42,7 @@ const func = (md) => {
 
 			//console.log(Array.isArray(equal));
 			let equalLink = str.match(validateLink);
-			console.log(equalLink);
+			// console.log(equalLink);
 
 			const arrLinks = [];
 
@@ -57,30 +59,49 @@ const func = (md) => {
 
 			// console.log(arrLinks);
 			arrLinks.forEach(links => {
-				// console.log(data);
+
+				//console.log(data);
 				fetch(links)
 					.then(response => {
 						if (response.status >= 200 && response.status < 400) {
-							//  arrLinks.status=response.status,
-							// arrLinks.statusText='ok'
-							console.log(`${links}  ${response.status} ok`);
 							
-						}else{
-							// arrLinks.status=response.status,
-							// arrLinks.statusText='fail'
-							console.log(`${links} ${response.status} fail`);
+								statsL.href = links;
+								statsL.status = response.status;
+								statsL.statusText =  'ok';
+								// console.log(stats);
+                              console.log(statsL);
+							  return statsL;
+							  						
 
-						}
-						// response.status >=200 && response.status< 400;
-						// {
-						// 	status:response.status,
-						// 	status.text:ok
-						// }
-						//  }
+							
+							//console.log(`${links}  ${response.status} ok`);
+							
+						} 
+						else if (response.status >400 && response.status<500){
+							statsL.href = links;
+								statsL.status = response.status;
+								statsL.statusText =  'fail';
+							  
+							//  arrLinks.status=response.status,
+							//  arrLinks.statusText:'fail'
+							//console.log(`${links} ${response.status} fail`);
+							console.log(statsL);
+							return statsL;
+							}
+
+							
+					
+
+					})
+				.catch(error =>
+					{statsL.href = links;
+						statsL.status = 'link sin status';
+						statsL.statusText =  'fail';
+						console.log(statsL);
+						return statsL;
 					})
 
-		
-						.catch(error =>console.log(`${links}  fail`))
+						 
 			})
 
        let stats =() =>{

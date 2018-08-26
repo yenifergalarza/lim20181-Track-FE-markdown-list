@@ -255,7 +255,7 @@ para usarlo programáticamente.
 ### Tutoriales / NodeSchool workshoppers
 
 - [learnyounode](https://github.com/wrnyounode)
-- [how-to-npm](https://github.co)
+- [how-to-npm](https://github.com/patitos)
 - [promise-it-wont-hurt](https://github.com/stevekane/promise-it-wont-hurt)
 
 ### Otros recursos
