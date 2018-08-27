@@ -6,41 +6,40 @@ const validate = /((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\
 const validateLink = /\[[\w\s]*\](\((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi;
 let equalLink = 0;
 const [, , ...args] = process.argv
-let md = `${args}`;
+const md = args[0];
 
 
 
 
+const absolutePath =path.resolve(md)
+
+console.log(absolutePath);
 
 
-
-
-
-
-const mdLinks = () => {
-	fs.stat(md, function (err, stats) {
+const linksMd = () => {
+	fs.stat(absolutePath, function (err, stats) {
 
 		if (stats.isFile()) {
 			console.log('  file');
-			func(md);
+			func(absolutePath);
 			
 
 		}
 		if (stats.isDirectory()) {
 			console.log(' directory');
-			readDir(md);
+			readDir(absolutePath);
 		}
 	})
 
 }
 
-const func = (md) => {
+const func = (absolutePath) => {
 	console.log(`Hola soy md`);
 	const statsL = {};
 
-	fs.readFile(md, 'utf8', (err, buff) => {
+	fs.readFile(absolutePath, 'utf8', (err, buff) => {
 
-		if (path.extname(md) !== '.md') {
+		if (path.extname(absolutePath) !== '.md') {
 			console.log('no se pudo leer el archivo');
 		}
 
@@ -78,23 +77,17 @@ const func = (md) => {
 								statsL.href = links;
 								statsL.status = response.status;
 								statsL.statusText =  'ok';
-								// console.log(stats);
+								statsL.file= absolutePath;
                               console.log(statsL);
 							  return statsL;
-							  						
-
-							
-							//console.log(`${links}  ${response.status} ok`);
+							  					
 							
 						} 
 						else if (response.status >400 && response.status<500){
 							statsL.href = links;
 								statsL.status = response.status;
 								statsL.statusText =  'fail';
-							  
-							//  arrLinks.status=response.status,
-							//  arrLinks.statusText:'fail'
-							//console.log(`${links} ${response.status} fail`);
+								statsL.file= absolutePath;
 							console.log(statsL);
 							return statsL;
 							}
@@ -107,7 +100,9 @@ const func = (md) => {
 					{statsL.href = links;
 						statsL.status = 'link sin status';
 						statsL.statusText =  'fail';
+						statsL.file= absolutePath;
 						console.log(statsL);
+
 						return statsL;
 					})
 
@@ -134,8 +129,8 @@ stats();
 
 
 
-const readDir = (md) => {
-	fs.readdir(md, (err, data) => {
+const readDir = (absolutePath) => {
+	fs.readdir(absolutePath, (err, data) => {
 		console.log("estas aqui");
 		console.log(data);
 
@@ -146,7 +141,7 @@ const readDir = (md) => {
 
 
 
-mdLinks();
+linksMd();
 
 
 // 
@@ -154,4 +149,4 @@ mdLinks();
 //console.log(process.argv)
 module.exports=func;
 module.exports=readDir;
-module.exports=mdLinks;
+module.exports=linksMd;

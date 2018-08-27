@@ -1,6 +1,6 @@
 const assert = require('assert');
 const func = require('../index');
-const mdLinks = require('../index');
+const linksMd = require('../index');
 const readDir = require('../index');
 
 
@@ -15,9 +15,9 @@ describe('Array', function() {
 newFunction();
 
 function newFunction() {
-        describe('mdLinks', () => {
+        describe('linksMd', () => {
             it('debería ser una función', () => {
-                assert.equal(typeof mdLinks, 'function');
+                assert.equal(typeof linksMd, 'function');
             });
         });
     }
