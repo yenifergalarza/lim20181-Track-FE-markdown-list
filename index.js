@@ -7,18 +7,28 @@ const validateLink = /\[[\w\s]*\](\((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:
 let equalLink = 0;
 const [, , ...args] = process.argv
 let md = `${args}`;
+
+
+
+
+
+
+
+
+
+
 const mdLinks = () => {
 	fs.stat(md, function (err, stats) {
 
 		if (stats.isFile()) {
 			console.log('    file');
-			check(md);
+			func(md);
 			
 
 		}
 		if (stats.isDirectory()) {
 			console.log('    directory');
-			leerCarpeta(md);
+			readDir(md);
 		}
 	})
 
@@ -124,7 +134,7 @@ stats();
 
 
 
-const leerCarpeta = (md) => {
+const readDir = (md) => {
 	fs.readdir(md, (err, data) => {
 		console.log("estas aqui");
 		console.log(data);
@@ -135,17 +145,7 @@ const leerCarpeta = (md) => {
 
 
 
-const check = () => {
 
-	if (path.extname(md) !== '.md') {
-		leerCarpeta(md);
-	} else {
-
-		func(md);
-
-	}
-
-}
 mdLinks();
 
 

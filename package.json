@@ -4,7 +4,7 @@
   "description": "es un paquete de npm que verifica links en archivos md ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers js:babel-register"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,14 @@
   "bin": {
     "md-links": "index.js",
     "--validate": "validate.js"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "register": "0.0.0"
   }
 }
