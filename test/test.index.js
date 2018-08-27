@@ -1,4 +1,9 @@
-var assert = require('assert');
+const assert = require('assert');
+const func = require('../index');
+const mdLinks = require('../index');
+const readDir = require('../index');
+
+
 describe('Array', function() {
   describe('#indexOf()', function() {
     it('should return -1 when the value is not present', function() {
@@ -38,3 +43,10 @@ function newFunction() {
                         });
                     });
                 }
+
+                describe('func', () => {
+                    it('como la extension no es md deberia retornar', () => {
+                      expect(func(readme.js)).toBe(null);
+                    });
+                 });
+

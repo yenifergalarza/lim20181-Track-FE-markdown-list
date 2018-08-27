@@ -21,13 +21,13 @@ const mdLinks = () => {
 	fs.stat(md, function (err, stats) {
 
 		if (stats.isFile()) {
-			console.log('    file');
+			console.log('  file');
 			func(md);
 			
 
 		}
 		if (stats.isDirectory()) {
-			console.log('    directory');
+			console.log(' directory');
 			readDir(md);
 		}
 	})
@@ -152,3 +152,6 @@ mdLinks();
 // 
 
 //console.log(process.argv)
+module.exports=func;
+module.exports=readDir;
+module.exports=mdLinks;
