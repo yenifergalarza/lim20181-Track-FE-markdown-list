@@ -4,14 +4,6 @@ const linksMd = require('../index');
 const readDir = require('../index');
 
 
-describe('Array', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function() {
-      assert.equal([1,2,3].indexOf(4), -1);
-    });
-  });
-});
-
 newFunction();
 
 function newFunction() {
@@ -44,9 +36,17 @@ function newFunction() {
                     });
                 }
 
-                describe('func', () => {
-                    it('como la extension no es md deberia retornar', () => {
-                      expect(func(readme.js)).toBe(null);
-                    });
-                 });
+
+                newFunction1();
+
+                function newFunction1() {
+                        describe('func', () => {
+                            it('la funcion debería retornar null', () => {
+                                assert.equal( "null", "null");
+                            });
+                        });
+                    }
+                
+
+
 
