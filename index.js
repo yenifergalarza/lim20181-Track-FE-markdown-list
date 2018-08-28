@@ -8,10 +8,16 @@ let equalLink = 0;
 const [, , ...args] = process.argv
 const md = args[0];
 
+const arrayUnique =[];
+
+const linkUnique = (link) => {
+	return [...new Set(link)];
+}
 
 
 
-const absolutePath =path.resolve(md)
+
+const absolutePath = path.resolve(md)
 
 console.log(absolutePath);
 
@@ -22,7 +28,7 @@ const linksMd = () => {
 		if (stats.isFile()) {
 			console.log('  file');
 			func(absolutePath);
-			
+
 
 		}
 		if (stats.isDirectory()) {
@@ -53,10 +59,19 @@ const func = (absolutePath) => {
 			let equalLink = str.match(validateLink);
 			// console.log(equalLink);
 
+
+
+			let stats = () => {
+				console.log(`Total: ${arrLinks.length}`);
+
+			}
+
+
+
 			const arrLinks = [];
 
 			//var result = validate.exec (str);
-			//console.log(result);
+			//
 			equalLink.forEach(function (element) {
 				const init = "(";
 				const end = ")";
@@ -64,7 +79,20 @@ const func = (absolutePath) => {
 				let endS = element.indexOf(end);
 				subString = element.substring(initS + 1, endS);
 				arrLinks.push(subString);
+
+				
+				//console.log(linkUnique(arrLinks).length)
+				//console.log(typeof(linkUnique));
+			
+				let lenghtArrayUnique= linkUnique(arrLinks).length;
+					arrayUnique.push(lenghtArrayUnique);
+					console.log(arrayUnique);
+				
 			})
+
+
+
+
 
 			// console.log(arrLinks);
 			arrLinks.forEach(links => {
@@ -73,49 +101,52 @@ const func = (absolutePath) => {
 				fetch(links)
 					.then(response => {
 						if (response.status >= 200 && response.status < 400) {
-							
-								statsL.href = links;
-								statsL.status = response.status;
-								statsL.statusText =  'ok';
-								statsL.file= absolutePath;
-                              console.log(statsL);
-							  return statsL;
-							  					
-							
-						} 
-						else if (response.status >400 && response.status<500){
+
 							statsL.href = links;
-								statsL.status = response.status;
-								statsL.statusText =  'fail';
-								statsL.file= absolutePath;
+							statsL.status = response.status;
+							statsL.statusText = 'ok';
+							statsL.file = absolutePath;
 							console.log(statsL);
 							return statsL;
-							}
 
-							
-					
+
+						}
+						else if (response.status > 400 && response.status < 500) {
+							statsL.href = links;
+							statsL.status = response.status;
+							statsL.statusText = 'fail';
+							statsL.file = absolutePath;
+							console.log(statsL);
+							return statsL;
+						}
+
+
+
 
 					})
-				.catch(error =>
-					{statsL.href = links;
+					.catch(error => {
+					statsL.href = links;
 						statsL.status = 'link sin status';
-						statsL.statusText =  'fail';
-						statsL.file= absolutePath;
+						statsL.statusText = 'fail';
+						statsL.file = absolutePath;
 						console.log(statsL);
 
 						return statsL;
 					})
 
-						 
+
 			})
 
-       let stats =() =>{
-		console.log(`Total: ${arrLinks.length}`);
-
-	   }
 
 
-stats();
+
+
+
+
+
+
+
+			stats();
 
 		}
 	});
@@ -139,14 +170,12 @@ const readDir = (absolutePath) => {
 
 
 
-
-
 linksMd();
 
 
 // 
 
 //console.log(process.argv)
-module.exports=func;
-module.exports=readDir;
-module.exports=linksMd;
+module.exports = func;
+module.exports = readDir;
+module.exports = linksMd;
