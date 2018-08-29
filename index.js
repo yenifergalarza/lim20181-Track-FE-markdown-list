@@ -84,13 +84,14 @@ const func = (absolutePath) => {
 				//console.log(linkUnique(arrLinks).length)
 				//console.log(typeof(linkUnique));
 			
-				let lenghtArrayUnique= linkUnique(arrLinks).length;
-					arrayUnique.push(lenghtArrayUnique);
-					console.log(arrayUnique);
+				
 				
 			})
 
-
+let lenghtArrayUnique= linkUnique(arrLinks).length;
+					arrayUnique.push(lenghtArrayUnique);
+					console.log(arrayUnique);
+					
 
 
 
